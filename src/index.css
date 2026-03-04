@@ -1,0 +1,1462 @@
+/* ========================================
+   CSS VARIABLES - TYPOGRAPHY SYSTEM
+   ======================================== */
+
+:root {
+  /* Font Families */
+  --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  --font-mono: 'Monaco', 'Courier New', monospace;
+
+  /* Font Sizes - Desktop */
+  --font-display: 64px;
+  --font-h1: 32px;
+  --font-h2: 28px;
+  --font-h3: 24px;
+  --font-h4: 20px;
+  --font-h5: 18px;
+  --font-h6: 16px;
+  --font-body: 16px;
+  --font-body-large: 18px;
+  --font-body-small: 14px;
+  --font-caption: 12px;
+  --font-overline: 11px;
+  --font-button: 14px;
+  --font-button-large: 16px;
+  --font-input: 16px;
+  --font-label: 14px;
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  --line-height-loose: 2;
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.8px;
+  --letter-spacing-normal: 0px;
+  --letter-spacing-wide: 0.5px;
+  --letter-spacing-wider: 1px;
+
+  /* ========================================
+     BUTTON SYSTEM
+     ======================================== */
+  
+  /* Button Heights */
+  --button-height-small: 32px;
+  --button-height-medium: 40px;
+  --button-height-large: 48px;
+  
+  /* Button Padding */
+  --button-padding-small: 6px 16px;
+  --button-padding-medium: 10px 24px;
+  --button-padding-large: 12px 32px;
+  
+  /* Button Border Radius */
+  --button-radius-small: 8px;
+  --button-radius-medium: 10px;
+  --button-radius-large: 12px;
+  --button-radius-rounded: 100px;
+  
+  /* Icon Button Sizes */
+  --icon-button-small: 32px;
+  --icon-button-medium: 40px;
+  --icon-button-large: 48px;
+  
+  /* Button Icon Sizes */
+  --button-icon-small: 16px;
+  --button-icon-medium: 20px;
+  --button-icon-large: 24px;
+  
+  /* Button Group Spacing */
+  --button-group-spacing: 12px;
+}
+
+/* Mobile Typography & Button Overrides */
+@media (max-width: 1023px) {
+  :root {
+    /* Typography */
+    --font-display: 40px;
+    --font-h1: 24px;
+    --font-h2: 22px;
+    --font-h3: 20px;
+    --font-h4: 18px;
+    --font-h5: 16px;
+    --font-h6: 14px;
+    --font-body: 15px;
+    --font-body-small: 13px;
+    --font-caption: 11px;
+    
+    /* Buttons - Touch-Friendly Sizes */
+    --button-height-small: 36px;
+    --button-height-medium: 44px;
+    --button-height-large: 52px;
+    --button-padding-small: 8px 16px;
+    --button-padding-medium: 10px 24px;
+    --button-padding-large: 14px 32px;
+    --icon-button-small: 36px;
+    --icon-button-medium: 44px;
+    --icon-button-large: 52px;
+  }
+}
+
+/* ========================================
+   MOBILE-FIRST BASE STYLES
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+  font-size: 16px; /* Base font size */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: var(--font-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F5F5F5;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  color: #000000;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#root {
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  width: 100%;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CCCCCC;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999999;
+}
+
+/* Global Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Card hover animations */
+.MuiCard-root {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Button hover animations */
+.MuiButton-root {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Enforce cursor pointer for all button types and interactive elements */
+button,
+[type="button"],
+[type="submit"],
+[type="reset"],
+.MuiButton-root,
+.MuiIconButton-root,
+.MuiButtonBase-root,
+.MuiChip-root[onClick],
+[role="button"] {
+  cursor: pointer !important;
+}
+
+/* ========================================
+   MOBILE-FIRST RESPONSIVE UTILITIES
+   ======================================== */
+
+/* Prevent all containers from overflowing - EXCEPT table containers */
+.MuiContainer-root,
+.MuiBox-root:not(.MuiTableContainer-root),
+.MuiPaper-root:not(:has(.MuiTable-root)),
+.MuiCard-root:not(:has(.MuiTable-root)) {
+  max-width: 100%;
+  overflow-x: hidden !important; /* Prevent horizontal scroll on regular containers */
+  overflow-wrap: break-word; /* Break long words */
+  word-wrap: break-word; /* Legacy support */
+}
+
+/* Responsive Tables - CRITICAL: Must allow horizontal scroll on mobile */
+.MuiTableContainer-root {
+  overflow-x: auto !important; /* Force horizontal scroll */
+  overflow-y: visible !important; /* Allow vertical content to show */
+  max-width: 100%;
+  width: 100%;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  display: block !important; /* Ensure proper scrolling behavior */
+  position: relative;
+}
+
+/* Ensure tables are always visible */
+.MuiTable-root {
+  display: table !important;
+  width: 100%;
+  min-width: 600px; /* Minimum width to ensure readability */
+  visibility: visible !important;
+  opacity: 1 !important;
+  border-collapse: collapse;
+}
+
+.MuiTableBody-root,
+.MuiTableHead-root {
+  display: table-row-group !important;
+  visibility: visible !important;
+}
+
+.MuiTableRow-root {
+  display: table-row !important;
+  visibility: visible !important;
+}
+
+.MuiTableCell-root {
+  display: table-cell !important;
+  visibility: visible !important;
+}
+
+/* Ensure tables inside containers can scroll */
+.MuiPaper-root:has(.MuiTable-root),
+.MuiCard-root:has(.MuiTable-root),
+.MuiBox-root:has(.MuiTable-root) {
+  overflow-x: auto !important;
+  max-width: 100%;
+}
+
+@media (max-width: 1023px) {
+  /* Mobile Table Enhancements */
+  .MuiTable-root {
+    min-width: 600px; /* Ensure table is wide enough to show content */
+    width: 100%;
+    display: table; /* Force proper table display */
+  }
+  
+  .MuiTableCell-root {
+    padding: 12px 8px;
+    font-size: 13px;
+    white-space: nowrap; /* Prevent text wrapping in cells */
+  }
+  
+  .MuiTableCell-head {
+    font-weight: 700;
+    font-size: 12px;
+    white-space: nowrap; /* Prevent header text wrapping */
+  }
+  
+  /* Ensure table containers are visible */
+  .MuiTableContainer-root {
+    display: block !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+  
+  /* Remove any height restrictions on mobile */
+  .MuiTable-root,
+  .MuiTableBody-root,
+  .MuiTableRow-root {
+    display: table !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Grid System - Prevent Overflow */
+.MuiGrid-container {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.MuiGrid-item {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 1023px) {
+  .MuiGrid-container {
+    margin: 0 !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  
+  .MuiGrid-item {
+    padding: 8px !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+}
+
+/* Responsive Dialog/Modal */
+@media (max-width: 1023px) {
+  .MuiDialog-paper {
+    margin: 16px;
+    max-width: calc(100% - 32px) !important;
+  }
+}
+
+/* Image Responsiveness */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ========================================
+   TYPOGRAPHY STANDARDIZATION
+   ======================================== */
+
+/* Headings - Consistent Styling */
+h1, .MuiTypography-h1 {
+  font-size: var(--font-h1) !important;
+  font-weight: var(--font-weight-bold) !important;
+  letter-spacing: var(--letter-spacing-tight) !important;
+  line-height: var(--line-height-tight) !important;
+  margin: 0;
+}
+
+h2, .MuiTypography-h2 {
+  font-size: var(--font-h2) !important;
+  font-weight: var(--font-weight-bold) !important;
+  letter-spacing: var(--letter-spacing-tight) !important;
+  line-height: var(--line-height-tight) !important;
+  margin: 0;
+}
+
+h3, .MuiTypography-h3 {
+  font-size: var(--font-h3) !important;
+  font-weight: var(--font-weight-bold) !important;
+  letter-spacing: var(--letter-spacing-tight) !important;
+  line-height: var(--line-height-normal) !important;
+  margin: 0;
+}
+
+h4, .MuiTypography-h4 {
+  font-size: var(--font-h4) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  letter-spacing: var(--letter-spacing-normal) !important;
+  line-height: var(--line-height-normal) !important;
+  margin: 0;
+}
+
+h5, .MuiTypography-h5 {
+  font-size: var(--font-h5) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  letter-spacing: var(--letter-spacing-normal) !important;
+  line-height: var(--line-height-normal) !important;
+  margin: 0;
+}
+
+h6, .MuiTypography-h6 {
+  font-size: var(--font-h6) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  letter-spacing: var(--letter-spacing-normal) !important;
+  line-height: var(--line-height-normal) !important;
+  margin: 0;
+}
+
+/* Body Text */
+p, .MuiTypography-body1 {
+  font-size: var(--font-body) !important;
+  font-weight: var(--font-weight-regular) !important;
+  line-height: var(--line-height-normal) !important;
+  margin: 0;
+}
+
+.MuiTypography-body2 {
+  font-size: var(--font-body-small) !important;
+  font-weight: var(--font-weight-regular) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+/* Captions */
+.MuiTypography-caption {
+  font-size: var(--font-caption) !important;
+  font-weight: var(--font-weight-regular) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+/* Subtitles */
+.MuiTypography-subtitle1 {
+  font-size: var(--font-body-large) !important;
+  font-weight: var(--font-weight-medium) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+.MuiTypography-subtitle2 {
+  font-size: var(--font-body-small) !important;
+  font-weight: var(--font-weight-medium) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+/* Buttons */
+.MuiButton-root {
+  font-size: var(--font-button) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  letter-spacing: var(--letter-spacing-normal) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+.MuiButton-sizeLarge {
+  font-size: var(--font-button-large) !important;
+}
+
+.MuiButton-sizeSmall {
+  font-size: var(--font-caption) !important;
+}
+
+/* Input Fields */
+.MuiInputBase-input,
+.MuiTextField-root input,
+.MuiSelect-select {
+  font-size: var(--font-input) !important;
+  font-weight: var(--font-weight-regular) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+/* Input Labels */
+.MuiInputLabel-root,
+.MuiFormLabel-root {
+  font-size: var(--font-label) !important;
+  font-weight: var(--font-weight-medium) !important;
+}
+
+/* Table Typography */
+.MuiTableCell-root {
+  font-size: var(--font-body-small) !important;
+  font-weight: var(--font-weight-regular) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+.MuiTableCell-head {
+  font-size: var(--font-body-small) !important;
+  font-weight: var(--font-weight-bold) !important;
+}
+
+/* Chip Typography */
+.MuiChip-label {
+  font-size: var(--font-caption) !important;
+  font-weight: var(--font-weight-semibold) !important;
+}
+
+/* Menu Items */
+.MuiMenuItem-root {
+  font-size: var(--font-body-small) !important;
+  font-weight: var(--font-weight-regular) !important;
+}
+
+/* Links */
+a {
+  font-size: inherit;
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  color: #D71920;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #B01418;
+  text-decoration: underline;
+}
+
+/* Touch-Friendly Buttons on Mobile */
+@media (max-width: 1023px) {
+  .MuiButton-root,
+  .MuiIconButton-root {
+    min-height: 44px; /* Apple's recommended touch target size */
+    min-width: 44px;
+  }
+}
+
+/* Card & Paper Responsive Fix */
+.MuiCard-root,
+.MuiPaper-root {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  box-sizing: border-box !important;
+}
+
+/* Card with flex display (tab strips, button groups) */
+.MuiCard-root[style*="display: flex"],
+.MuiCard-root[style*="display:flex"] {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  flex-wrap: nowrap !important;
+}
+
+.MuiCardContent-root {
+  max-width: 100% !important;
+  overflow: hidden !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Typography inside cards - prevent overflow */
+.MuiCard-root *,
+.MuiPaper-root *,
+.MuiCardContent-root * {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+/* Box components - prevent horizontal scroll */
+.MuiBox-root {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+/* Text elements - ensure proper wrapping */
+.MuiTypography-root {
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+/* Responsive Padding & Margins */
+@media (max-width: 1023px) {
+  .MuiCard-root {
+    border-radius: 12px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  .MuiCardContent-root {
+    padding: 16px !important;
+  }
+  
+  .MuiPaper-root {
+    border-radius: 12px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* Hide scrollbars on mobile for cleaner look (optional) */
+@media (max-width: 1023px) {
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
+  }
+}
+
+/* Flexbox Utilities for Responsive Layouts */
+.flex-responsive {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media (max-width: 1023px) {
+  .flex-responsive {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* Safe Area Padding for Mobile Devices (iPhone notch, etc.) */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+}
+
+/* Prevent text overflow */
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Multi-line text truncation */
+.text-truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ========================================
+   TYPOGRAPHY UTILITY CLASSES
+   ======================================== */
+
+/* Font Size Utilities */
+.text-display {
+  font-size: var(--font-display) !important;
+  font-weight: var(--font-weight-bold) !important;
+  line-height: var(--line-height-tight) !important;
+}
+
+.text-h1 {
+  font-size: var(--font-h1) !important;
+  font-weight: var(--font-weight-bold) !important;
+  line-height: var(--line-height-tight) !important;
+}
+
+.text-h2 {
+  font-size: var(--font-h2) !important;
+  font-weight: var(--font-weight-bold) !important;
+  line-height: var(--line-height-tight) !important;
+}
+
+.text-h3 {
+  font-size: var(--font-h3) !important;
+  font-weight: var(--font-weight-bold) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+.text-h4 {
+  font-size: var(--font-h4) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+.text-h5 {
+  font-size: var(--font-h5) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+.text-h6 {
+  font-size: var(--font-h6) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+.text-body {
+  font-size: var(--font-body) !important;
+  font-weight: var(--font-weight-regular) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+.text-body-large {
+  font-size: var(--font-body-large) !important;
+  font-weight: var(--font-weight-regular) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+.text-body-small {
+  font-size: var(--font-body-small) !important;
+  font-weight: var(--font-weight-regular) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+.text-caption {
+  font-size: var(--font-caption) !important;
+  font-weight: var(--font-weight-regular) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+.text-overline {
+  font-size: var(--font-overline) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide) !important;
+}
+
+/* Font Weight Utilities */
+.font-light {
+  font-weight: var(--font-weight-light) !important;
+}
+
+.font-regular {
+  font-weight: var(--font-weight-regular) !important;
+}
+
+.font-medium {
+  font-weight: var(--font-weight-medium) !important;
+}
+
+.font-semibold {
+  font-weight: var(--font-weight-semibold) !important;
+}
+
+.font-bold {
+  font-weight: var(--font-weight-bold) !important;
+}
+
+.font-extrabold {
+  font-weight: var(--font-weight-extrabold) !important;
+}
+
+/* Line Height Utilities */
+.leading-tight {
+  line-height: var(--line-height-tight) !important;
+}
+
+.leading-normal {
+  line-height: var(--line-height-normal) !important;
+}
+
+.leading-relaxed {
+  line-height: var(--line-height-relaxed) !important;
+}
+
+.leading-loose {
+  line-height: var(--line-height-loose) !important;
+}
+
+/* Letter Spacing Utilities */
+.tracking-tight {
+  letter-spacing: var(--letter-spacing-tight) !important;
+}
+
+.tracking-normal {
+  letter-spacing: var(--letter-spacing-normal) !important;
+}
+
+.tracking-wide {
+  letter-spacing: var(--letter-spacing-wide) !important;
+}
+
+.tracking-wider {
+  letter-spacing: var(--letter-spacing-wider) !important;
+}
+
+/* Text Alignment */
+.text-left {
+  text-align: left !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
+/* Text Transform */
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.text-normal-case {
+  text-transform: none !important;
+}
+
+/* ========================================
+   BUTTON STANDARDIZATION
+   ======================================== */
+
+/* Button Base Styles - Consistent Across All Buttons */
+button,
+[type="button"],
+[type="submit"],
+[type="reset"],
+.MuiButton-root,
+.MuiIconButton-root {
+  font-family: var(--font-primary) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  letter-spacing: var(--letter-spacing-normal) !important;
+  text-transform: none !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer !important;
+}
+
+/* Standard Button Sizes */
+.MuiButton-sizeSmall {
+  height: var(--button-height-small) !important;
+  min-height: var(--button-height-small) !important;
+  padding: var(--button-padding-small) !important;
+  font-size: var(--font-caption) !important;
+  border-radius: var(--button-radius-small) !important;
+}
+
+.MuiButton-sizeMedium,
+.MuiButton-root:not(.MuiButton-sizeSmall):not(.MuiButton-sizeLarge) {
+  height: var(--button-height-medium) !important;
+  min-height: var(--button-height-medium) !important;
+  padding: var(--button-padding-medium) !important;
+  font-size: var(--font-button) !important;
+  border-radius: var(--button-radius-medium) !important;
+}
+
+.MuiButton-sizeLarge {
+  height: var(--button-height-large) !important;
+  min-height: var(--button-height-large) !important;
+  padding: var(--button-padding-large) !important;
+  font-size: var(--font-button-large) !important;
+  border-radius: var(--button-radius-large) !important;
+}
+
+/* Icon Button Sizes */
+.MuiIconButton-sizeSmall {
+  width: var(--icon-button-small) !important;
+  height: var(--icon-button-small) !important;
+  border-radius: var(--button-radius-small) !important;
+}
+
+.MuiIconButton-sizeSmall svg {
+  font-size: var(--button-icon-small) !important;
+}
+
+.MuiIconButton-sizeMedium,
+.MuiIconButton-root:not(.MuiIconButton-sizeSmall):not(.MuiIconButton-sizeLarge) {
+  width: var(--icon-button-medium) !important;
+  height: var(--icon-button-medium) !important;
+  border-radius: var(--button-radius-medium) !important;
+}
+
+.MuiIconButton-sizeMedium svg,
+.MuiIconButton-root:not(.MuiIconButton-sizeSmall):not(.MuiIconButton-sizeLarge) svg {
+  font-size: var(--button-icon-medium) !important;
+}
+
+.MuiIconButton-sizeLarge {
+  width: var(--icon-button-large) !important;
+  height: var(--icon-button-large) !important;
+  border-radius: var(--button-radius-large) !important;
+}
+
+.MuiIconButton-sizeLarge svg {
+  font-size: var(--button-icon-large) !important;
+}
+
+/* Button Icons - Consistent Sizing */
+.MuiButton-startIcon,
+.MuiButton-endIcon {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.MuiButton-sizeSmall .MuiButton-startIcon,
+.MuiButton-sizeSmall .MuiButton-endIcon {
+  font-size: var(--button-icon-small) !important;
+}
+
+.MuiButton-sizeSmall .MuiButton-startIcon svg,
+.MuiButton-sizeSmall .MuiButton-endIcon svg {
+  font-size: var(--button-icon-small) !important;
+}
+
+.MuiButton-sizeMedium .MuiButton-startIcon,
+.MuiButton-sizeMedium .MuiButton-endIcon,
+.MuiButton-root:not(.MuiButton-sizeSmall):not(.MuiButton-sizeLarge) .MuiButton-startIcon,
+.MuiButton-root:not(.MuiButton-sizeSmall):not(.MuiButton-sizeLarge) .MuiButton-endIcon {
+  font-size: var(--button-icon-medium) !important;
+}
+
+.MuiButton-sizeMedium .MuiButton-startIcon svg,
+.MuiButton-sizeMedium .MuiButton-endIcon svg,
+.MuiButton-root:not(.MuiButton-sizeSmall):not(.MuiButton-sizeLarge) .MuiButton-startIcon svg,
+.MuiButton-root:not(.MuiButton-sizeSmall):not(.MuiButton-sizeLarge) .MuiButton-endIcon svg {
+  font-size: var(--button-icon-medium) !important;
+}
+
+.MuiButton-sizeLarge .MuiButton-startIcon,
+.MuiButton-sizeLarge .MuiButton-endIcon {
+  font-size: var(--button-icon-large) !important;
+}
+
+.MuiButton-sizeLarge .MuiButton-startIcon svg,
+.MuiButton-sizeLarge .MuiButton-endIcon svg {
+  font-size: var(--button-icon-large) !important;
+}
+
+/* Button Hover Effects - Consistent */
+.MuiButton-root:hover:not(.Mui-disabled) {
+  transform: translateY(-2px) !important;
+  box-shadow: none !important;
+}
+
+.MuiButton-contained:hover:not(.Mui-disabled) {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.MuiButton-containedPrimary:hover:not(.Mui-disabled) {
+  box-shadow: 0 6px 12px rgba(215, 25, 32, 0.25) !important;
+}
+
+.MuiButton-root:active:not(.Mui-disabled) {
+  transform: translateY(0) !important;
+}
+
+.MuiIconButton-root:hover:not(.Mui-disabled) {
+  transform: scale(1.05) !important;
+}
+
+.MuiIconButton-root:active:not(.Mui-disabled) {
+  transform: scale(0.95) !important;
+}
+
+/* Button Group Consistency */
+.MuiButtonGroup-root {
+  box-shadow: none !important;
+}
+
+.MuiButtonGroup-root .MuiButton-root {
+  box-shadow: none !important;
+}
+
+.MuiButtonGroup-root .MuiButton-root:hover {
+  box-shadow: none !important;
+}
+
+/* Disabled Button Styles - Consistent */
+.MuiButton-root.Mui-disabled,
+.MuiIconButton-root.Mui-disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+  pointer-events: auto !important;
+}
+
+/* Full Width Buttons - Maintain Height */
+.MuiButton-fullWidth {
+  width: 100% !important;
+}
+
+/* Chip Buttons - Consistent with Button System */
+.MuiChip-root {
+  height: var(--button-height-small) !important;
+  border-radius: var(--button-radius-rounded) !important;
+  font-size: var(--font-caption) !important;
+  font-weight: var(--font-weight-semibold) !important;
+}
+
+.MuiChip-sizeMedium {
+  height: var(--button-height-medium) !important;
+  font-size: var(--font-body-small) !important;
+}
+
+/* ========================================
+   BUTTON UTILITY CLASSES
+   ======================================== */
+
+/* Size Utilities */
+.btn-small {
+  height: var(--button-height-small) !important;
+  min-height: var(--button-height-small) !important;
+  padding: var(--button-padding-small) !important;
+  font-size: var(--font-caption) !important;
+  border-radius: var(--button-radius-small) !important;
+}
+
+.btn-medium {
+  height: var(--button-height-medium) !important;
+  min-height: var(--button-height-medium) !important;
+  padding: var(--button-padding-medium) !important;
+  font-size: var(--font-button) !important;
+  border-radius: var(--button-radius-medium) !important;
+}
+
+.btn-large {
+  height: var(--button-height-large) !important;
+  min-height: var(--button-height-large) !important;
+  padding: var(--button-padding-large) !important;
+  font-size: var(--font-button-large) !important;
+  border-radius: var(--button-radius-large) !important;
+}
+
+/* Border Radius Utilities */
+.btn-rounded {
+  border-radius: var(--button-radius-rounded) !important;
+}
+
+.btn-square {
+  border-radius: 0 !important;
+}
+
+/* Full Width */
+.btn-full-width {
+  width: 100% !important;
+}
+
+/* Icon Button Utilities */
+.icon-btn-small {
+  width: var(--icon-button-small) !important;
+  height: var(--icon-button-small) !important;
+}
+
+.icon-btn-medium {
+  width: var(--icon-button-medium) !important;
+  height: var(--icon-button-medium) !important;
+}
+
+.icon-btn-large {
+  width: var(--icon-button-large) !important;
+  height: var(--icon-button-large) !important;
+}
+
+/* ========================================
+   HORIZONTAL SCROLL FIX - CRITICAL
+   ======================================== */
+
+/* Prevent horizontal scrollbar on all pages */
+* {
+  box-sizing: border-box;
+}
+
+/* Ensure no element causes horizontal overflow */
+body,
+html,
+#root {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+}
+
+/* All MUI components - prevent overflow */
+[class*="Mui"] {
+  box-sizing: border-box !important;
+}
+
+/* Flexbox containers - prevent overflow */
+[style*="display: flex"],
+[style*="display:flex"],
+.flex-container {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* Prevent text overflow globally */
+h1, h2, h3, h4, h5, h6,
+p, span, div, a, button,
+.MuiTypography-root {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Specific fix for long content */
+pre, code {
+  overflow-x: auto !important;
+  max-width: 100% !important;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+}
+
+/* Images and media - responsive */
+img,
+video,
+iframe,
+embed,
+object {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Mobile-specific overflow prevention */
+@media (max-width: 1023px) {
+  /* Force no horizontal scroll on mobile */
+  body {
+    overflow-x: hidden !important;
+    position: relative !important;
+    max-width: 100vw !important;
+  }
+  
+  /* All containers must fit screen */
+  * {
+    max-width: 100vw !important;
+  }
+  
+  /* Flexbox on mobile */
+  [style*="display: flex"],
+  [style*="display:flex"] {
+    flex-wrap: wrap !important;
+  }
+  
+  /* Grid on mobile */
+  .MuiGrid-container {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+  
+  /* Button strips - ensure they're scrollable on mobile */
+  .MuiCard-root:has(.MuiButton-root) {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  
+  /* Buttons in horizontal layouts */
+  .MuiButton-root {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* ========================================
+   TABLE VISIBILITY FIX - CRITICAL
+   ======================================== */
+
+/* FINAL OVERRIDE: Ensure tables are ALWAYS visible on ALL devices */
+table,
+.MuiTable-root,
+.MuiTableContainer-root,
+.MuiTableBody-root,
+.MuiTableHead-root,
+.MuiTableRow-root,
+.MuiTableCell-root,
+tbody,
+thead,
+tr,
+td,
+th {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: table !important; /* For table elements */
+}
+
+/* Specific overrides for table elements */
+.MuiTable-root {
+  display: table !important;
+  width: 100% !important;
+}
+
+.MuiTableBody-root,
+.MuiTableHead-root,
+tbody,
+thead {
+  display: table-row-group !important;
+}
+
+.MuiTableRow-root,
+tr {
+  display: table-row !important;
+}
+
+.MuiTableCell-root,
+td,
+th {
+  display: table-cell !important;
+  padding: 16px !important;
+}
+
+/* Table containers MUST scroll on mobile */
+.MuiTableContainer-root {
+  display: block !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Mobile-specific table fixes */
+@media (max-width: 1023px) {
+  /* Force table visibility on mobile */
+  .MuiTable-root,
+  table {
+    display: table !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-width: 600px !important; /* Ensure tables are wide enough */
+  }
+  
+  /* Ensure horizontal scroll works */
+  .MuiTableContainer-root {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    display: block !important;
+  }
+  
+  /* Ensure all table cells are visible */
+  .MuiTableCell-root,
+  td,
+  th {
+    display: table-cell !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 12px 8px !important;
+    font-size: 13px !important;
+  }
+  
+  /* Ensure table rows are visible */
+  .MuiTableRow-root,
+  tr {
+    display: table-row !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Remove any potential hiding */
+  .MuiTableBody-root,
+  .MuiTableHead-root,
+  tbody,
+  thead {
+    display: table-row-group !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ========================================
+   CARD RESPONSIVENESS - ALL PAGES
+   ======================================== */
+
+/* Global Card Responsiveness */
+.MuiCard-root,
+.MuiPaper-root {
+  max-width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* Card Content Responsive */
+.MuiCardContent-root {
+  padding: 24px !important;
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Card Headers */
+.MuiCardHeader-root {
+  padding: 20px 24px !important;
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.MuiCardHeader-title {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* Card Actions */
+.MuiCardActions-root {
+  padding: 16px 24px !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  box-sizing: border-box !important;
+}
+
+/* Grid Items containing Cards */
+.MuiGrid-item .MuiCard-root,
+.MuiGrid-item .MuiPaper-root {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Flex containers with Cards */
+[style*="display: flex"] .MuiCard-root,
+[style*="display:flex"] .MuiCard-root {
+  max-width: 100% !important;
+  flex-shrink: 1 !important;
+  min-width: 0 !important;
+}
+
+/* Mobile Card Responsiveness */
+@media (max-width: 1023px) {
+  /* Card Padding */
+  .MuiCard-root {
+    margin: 0 !important;
+    border-radius: 16px !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+  
+  .MuiCardContent-root {
+    padding: 16px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .MuiCardHeader-root {
+    padding: 12px 16px !important;
+    flex-wrap: wrap !important;
+  }
+  
+  .MuiCardHeader-title {
+    font-size: 16px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+  
+  .MuiCardHeader-subheader {
+    font-size: 13px !important;
+  }
+  
+  .MuiCardActions-root {
+    padding: 12px 16px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  .MuiCardActions-root .MuiButton-root {
+    width: 100% !important;
+    margin: 4px 0 !important;
+  }
+  
+  /* Stat Cards */
+  .MuiCard-root[style*="gradient"],
+  .MuiCard-root[style*="linear-gradient"] {
+    min-height: auto !important;
+    padding: 16px !important;
+  }
+  
+  /* Info Cards with Icons */
+  .MuiCard-root .MuiBox-root:has(svg) {
+    flex-shrink: 0 !important;
+  }
+  
+  /* Cards in Grid */
+  .MuiGrid-container .MuiGrid-item {
+    padding: 8px !important;
+  }
+  
+  .MuiGrid-container {
+    margin: -8px !important;
+    width: calc(100% + 16px) !important;
+  }
+}
+
+/* Tablet Card Responsiveness */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .MuiCardContent-root {
+    padding: 20px !important;
+  }
+  
+  .MuiCardHeader-root {
+    padding: 16px 20px !important;
+  }
+  
+  .MuiCardActions-root {
+    flex-direction: row !important;
+    padding: 14px 20px !important;
+  }
+  
+  .MuiCardActions-root .MuiButton-root {
+    width: auto !important;
+    flex: 1 !important;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 375px) {
+  .MuiCard-root {
+    border-radius: 12px !important;
+  }
+  
+  .MuiCardContent-root {
+    padding: 12px !important;
+  }
+  
+  .MuiCardHeader-root {
+    padding: 10px 12px !important;
+  }
+  
+  .MuiCardHeader-title {
+    font-size: 14px !important;
+  }
+  
+  .MuiCardActions-root {
+    padding: 10px 12px !important;
+  }
+}
